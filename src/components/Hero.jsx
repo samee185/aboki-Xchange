@@ -42,6 +42,9 @@ const Hero = () => {
                 setAmount(e.target.value);
               }}
             />
+            {amount !== "" && parseFloat(amount) <= 0 && (
+              <p className="text-red-500">Please enter a positive value</p>
+            )}
           </div>
           <div className="md:w-[300px]">
             <Select
@@ -51,7 +54,10 @@ const Hero = () => {
               disabled
               value={currency.base || ""}
             >
-              <Option value={currency.base || ""}> {currency.base || "Loading ...."} </Option>
+              <Option value={currency.base || ""}>
+                {" "}
+                {currency.base || "Loading ...."}{" "}
+              </Option>
             </Select>
           </div>
           <div className="md:w-[300px]">
