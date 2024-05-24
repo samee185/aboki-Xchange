@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@media (max-width:960px){
+    .hero-sec{
+        flex-wrap: wrap;
+    }
+}
