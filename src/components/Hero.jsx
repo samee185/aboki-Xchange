@@ -11,11 +11,12 @@ const Hero = () => {
     console.log(currency);
 
     
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+    if (loading) return <p className="text-[20px] text-blue-900 mt-6">Loading...</p>;
+    if (error) return <p className="text-[20px] mt-6 text-red-900">Error: {error.message}</p>;
 
 
     const handleAmountChange = (e) =>{
+      
       const amountValue = e.target.value
       if (amountValue < 0 ) {
         return
@@ -56,7 +57,7 @@ const Hero = () => {
             >
               <Option value={currency.base || ""}>
                 {" "}
-                {currency.base || "Loading ...."}{" "}
+                {currency.base || "Loading ....."}{" "}
               </Option>
             </Select>
           </div>
