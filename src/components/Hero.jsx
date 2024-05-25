@@ -1,4 +1,4 @@
-import { Input, Select, Option } from "@material-tailwind/react";
+import { Input, Select, Option, Button } from "@material-tailwind/react";
 import UseFetch from "./UseFetch";
 import { useState } from "react";
 
@@ -11,7 +11,11 @@ const Hero = () => {
     console.log(currency);
 
     
-    if (loading) return <p className="text-[20px] text-blue-900 mt-6 p-12">Loading...</p>;
+    if (loading) return (
+      <Button variant="text" loading={true}>
+        Loading
+      </Button>
+    );
     if (error) return <p className="text-[20px] mt-6 text-red-900 p-12">Error: {error.message}</p>;
 
 
