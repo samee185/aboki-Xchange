@@ -5,7 +5,8 @@ import {BanknotesIcon} from "@heroicons/react/24/outline"
 const Hero = () => {
     const [amount, setAmount] = useState("");
     const [to, setTo] = useState("");
-    const [exchangeRate, setExchangeRate] = useState(null)
+    const [exchangeRate, setExchangeRate] = useState(null);
+    const [convertedAmount, SetConvertedAmount] = useState(null);
     const app_id = "babb87059af1475a9106416414a9b676"
     const url = `https://openexchangerates.org/api/latest.json?app_id=${app_id}`
     const { currency, loading, error } = UseFetch(url);
@@ -22,24 +23,28 @@ const Hero = () => {
 
     const handleAmountChange = (e) =>{
       
-      const amountValue = e.target.value
+      const amountValue = parseFloat(e.target.value);
       if (amountValue < 0 ) {
         return <p className="text-red-500">Please enter a positive value</p>;
       }
       setAmount(amountValue);
     }
 
+    const handleCurrencyChange = (e) => {
+      const selectedCurrency = e.target.value ;
+      setTo(selectedCurrency)
+      if (currency.rates) {
+        const rate = currency.rates[selectedCurrency]
+        setExchangeRate(rate)
+      }
+    };
+
+
+
     const handleConvert = (to) => {
-      const rate = currency.rates[to]
-      setExchangeRate(rate)
-
-      const convertedAmount = amount * exchangeRate
-
-      return `<div className="mt-8 p-12 bg-purple-300 text-[16px]">
-              <p>
-                <strong>Converted Amount</strong>: ${to} ${convertedAmount}
-              </p>
-            </div>`;
+      if (amount && exchangeRate) {
+        
+      }
     };
 
   return (
