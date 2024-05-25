@@ -11,15 +11,15 @@ const Hero = () => {
     console.log(currency);
 
     
-    if (loading) return <p className="text-[20px] text-blue-900 mt-6">Loading...</p>;
-    if (error) return <p className="text-[20px] mt-6 text-red-900">Error: {error.message}</p>;
+    if (loading) return <p className="text-[20px] text-blue-900 mt-6 p-12">Loading...</p>;
+    if (error) return <p className="text-[20px] mt-6 text-red-900 p-12">Error: {error.message}</p>;
 
 
     const handleAmountChange = (e) =>{
       
       const amountValue = e.target.value
       if (amountValue < 0 ) {
-        return
+        return <p className="text-red-500">Please enter a positive value</p>;
       }
       setAmount(amountValue);
     }
@@ -39,13 +39,8 @@ const Hero = () => {
               className="w-full"
               name="amount"
               value={amount}
-              onChange={(e) => {
-                setAmount(e.target.value);
-              }}
+              onChange={handleAmountChange}
             />
-            {amount !== "" && parseFloat(amount) <= 0 && (
-              <p className="text-red-500">Please enter a positive value</p>
-            )}
           </div>
           <div className="md:w-[300px]">
             <Select
@@ -80,6 +75,9 @@ const Hero = () => {
             </Select>
           </div>
         </div>
+        {amount !== "" && parseFloat(amount) <= 0 && (
+          <p className="text-red-500 mt-4">Please enter a positive value</p>
+        )}
       </div>
     </>
   );
