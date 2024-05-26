@@ -1,51 +1,51 @@
 import { Input, Select, Option, Button } from "@material-tailwind/react";
 import UseFetch from "./UseFetch";
 import { useState } from "react";
-import {BanknotesIcon} from "@heroicons/react/24/outline"
+import { BanknotesIcon } from "@heroicons/react/24/outline";
 const Hero = () => {
-    const [amount, setAmount] = useState("");
-    const [to, setTo] = useState("");
-    const [exchangeRate, setExchangeRate] = useState(null);
-    const [convertedAmount, SetConvertedAmount] = useState(null);
-    const app_id = "babb87059af1475a9106416414a9b676"
-    const url = `https://openexchangerates.org/api/latest.json?app_id=${app_id}`
-    const { currency, loading, error } = UseFetch(url);
-    console.log(currency);
+  const [amount, setAmount] = useState("");
+  const [to, setTo] = useState("");
+  const [exchangeRate, setExchangeRate] = useState(null);
+  const [convertedAmount, setConvertedAmount] = useState(null);
+  const app_id = "babb87059af1475a9106416414a9b676";
+  const url = `https://openexchangerates.org/api/latest.json?app_id=${app_id}`;
+  const { currency, loading, error } = UseFetch(url);
+  console.log(currency);
 
-    
-    if (loading) return (
+  if (loading)
+    return (
       <Button variant="text" loading={true} className="text-[20px] p-12">
         Loading
       </Button>
     );
-    if (error) return <p className="text-[20px] mt-6 text-red-900 p-12">Error: {error.message}</p>;
+  if (error)
+    return (
+      <p className="text-[20px] mt-6 text-red-900 p-12">
+        Error: {error.message}
+      </p>
+    );
 
-
-    const handleAmountChange = (e) =>{
-      
-      const amountValue = parseFloat(e.target.value);
-      if (amountValue < 0 ) {
-        return <p className="text-red-500">Please enter a positive value</p>;
-      }
-      setAmount(amountValue);
+  const handleAmountChange = (e) => {
+    const amountValue = parseFloat(e.target.value);
+    if (amountValue < 0 || isNaN(amountValue)) {
+      return;
     }
+    setAmount(amountValue);
+  };
 
-    const handleCurrencyChange = (e) => {
-      const selectedCurrency = e.target.value ;
-      setTo(selectedCurrency)
-      if (currency.rates) {
-        const rate = currency.rates[selectedCurrency]
-        setExchangeRate(rate)
-      }
-    };
+  const handleCurrencyChange = (value) => {
+    setTo(value);
+    if (currency.rates) {
+      const rate = currency.rates[value];
+      setExchangeRate(rate);
+    }
+  };
 
-
-
-    const handleConvert = (to) => {
-      if (amount && exchangeRate) {
-        
-      }
-    };
+  const handleConvert = () => {
+    if (amount && exchangeRate) {
+      setConvertedAmount(amount * exchangeRate);
+    }
+  };
 
   return (
     <>
@@ -57,7 +57,7 @@ const Hero = () => {
           <div className="md:w-[300px]">
             <Input
               variant="outlined"
-              type="number"
+              type="text"
               label="Amount"
               placeholder="Amount"
               className="w-full"
@@ -86,9 +86,7 @@ const Hero = () => {
               label="To (Currency)"
               className="w-full"
               value={to}
-              onChange={(e) => {
-                setTo(e);
-              }}
+              onChange={handleCurrencyChange}
             >
               {currency.rates &&
                 Object.keys(currency.rates).map((key) => (
@@ -103,11 +101,29 @@ const Hero = () => {
           <p className="text-red-500 mt-4">Please enter a positive value</p>
         )}
         <div className="mt-12 md:flex md:justify-center">
-          <Button className="flex items-center gap-2 hover:bg-green-400 px-8" onClick={handleConvert}>
+          <Button
+            className="flex items-center gap-2 bg-purple-900
+             hover:bg-purple-300 px-8"
+            onClick={handleConvert}
+          >
             <p>Convert</p>
-            <BanknotesIcon  className="w-5 h-4"/>
+            <BanknotesIcon className="w-5 h-4" />
           </Button>
         </div>
+
+        {convertedAmount !== null && (
+          <div className="mt-12 bg-purple-100 py-12 px-6 w-1/2 rounded-xl">
+            <p className="text-purple-900 font-bold text-[18px]">
+              <span className="text-gray-700">
+                {amount} {currency.base} = {" "}
+              </span>{" "}
+              <span>
+                {" "}
+                {to} {convertedAmount.toFixed(2)}
+              </span>
+            </p>
+          </div>
+        )}
       </div>
     </>
   );
