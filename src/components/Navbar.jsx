@@ -65,7 +65,7 @@ const Navbar = () => {
           as="a"
           href="#"
           variant="h6"
-          className="mr-4 flex items-center gap-2 cursor-pointer py-1 text-purple-900 text-[28px] w-32" 
+          className="mr-4 flex items-center gap-2 cursor-pointer py-1 text-purple-900 text-[26px] md:text-[28px] w-32" 
         >
           Aboki
           <BanknotesIcon/>

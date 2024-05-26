@@ -112,7 +112,7 @@ const Hero = () => {
         </div>
 
         {convertedAmount !== null && (
-          <div className="md:w-1/2 mt-12 bg-purple-100 py-10 px-6  rounded-xl">
+          <div className="md:w-1/2 mt-10 bg-purple-100 py-8 px-6 rounded-xl">
             <p className="text-purple-900 font-bold md:text-[18px] ">
               <span className="text-gray-700">
                 {amount} {currency.base} ={" "}
