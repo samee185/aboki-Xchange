@@ -45,6 +45,8 @@ const Hero = () => {
     if (amount && exchangeRate) {
       setConvertedAmount(amount * exchangeRate);
     }
+
+    setAmount("")
   };
 
   return (
@@ -113,16 +115,21 @@ const Hero = () => {
 
         {convertedAmount !== null && (
           <div className="md:w-1/2 mt-10 bg-purple-100 py-8 px-6 rounded-xl">
-            <p className="text-purple-900 font-bold md:text-[18px] ">
-              <span className="text-gray-700">
-                {amount} {currency.base} ={" "}
-              </span>{" "}
+            <p className="text-purple-900 md:text-[18px] ">
+              Converted Amount =
               <span>
                 {" "}
-                {to} {convertedAmount.toFixed(3)}
+                {to} {convertedAmount.toFixed(2)}
               </span>
             </p>
           </div>
+
+        )}
+
+        {convertedAmount !== null &&(
+          <p className="mt-4">
+           <strong>Rate:</strong> <span>1 {currency.base} = {exchangeRate} {to}</span>
+          </p>
         )}
       </div>
     </>
