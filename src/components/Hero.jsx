@@ -46,7 +46,8 @@ const Hero = () => {
       setConvertedAmount(amount * exchangeRate);
     }
 
-    setAmount("")
+    setAmount("");
+    setTo("");
   };
 
   return (
@@ -119,7 +120,7 @@ const Hero = () => {
               Converted Amount =
               <span>
                 {" "}
-                {to} {convertedAmount.toFixed(2)}
+                {to} {convertedAmount.toFixed(3)}
               </span>
             </p>
           </div>
