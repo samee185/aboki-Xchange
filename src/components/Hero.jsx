@@ -79,7 +79,7 @@ const Hero = () => {
             >
               <Option value={currency.base || ""}>
                 {" "}
-                {currency.base || "Loading ....."}{" "}
+                {currency.base || "Loading ......"}{" "}
               </Option>
             </Select>
           </div>
@@ -120,7 +120,7 @@ const Hero = () => {
               Converted Amount =
               <span>
                 {" "}
-                {to} {convertedAmount.toFixed(3)}
+                {to} {convertedAmount.toFixed(2)}
               </span>
             </p>
           </div>
