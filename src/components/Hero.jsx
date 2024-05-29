@@ -14,7 +14,7 @@ const Hero = () => {
 
   if (loading)
     return (
-      <Button variant="text" loading={true} className="text-[20px] p-12">
+      <Button variant="text" loading={true} className="text-[28px] p-12 text-center">
         Loading
       </Button>
     );
