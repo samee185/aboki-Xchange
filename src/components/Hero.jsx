@@ -117,7 +117,7 @@ const Hero = () => {
         {convertedAmount !== null && (
           <div className="md:w-1/2 mt-10 bg-purple-100 py-8 px-6 rounded-xl">
             <p className="text-purple-900 md:text-[18px] ">
-              Converted Amount =
+              Converted Amount: 
               <span>
                 {" "}
                 {to} {convertedAmount.toFixed(2)}
@@ -128,7 +128,7 @@ const Hero = () => {
         )}
 
         {convertedAmount !== null &&(
-          <p className="md:mt-4">
+          <p className="mt-4">
            <strong>Rate:</strong> <span>1 {currency.base} = {exchangeRate} {to}</span>
           </p>
         )}
