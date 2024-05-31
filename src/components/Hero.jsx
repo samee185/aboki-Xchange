@@ -119,7 +119,7 @@ const Hero = () => {
               Converted Amount: 
               <span>
                 {" "}
-                {to} {convertedAmount.toFixed(4)}
+                {to} {convertedAmount.toFixed(2)}
               </span>
             </p>
           </div>
