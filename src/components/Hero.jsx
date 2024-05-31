@@ -109,7 +109,7 @@ const Hero = () => {
             onClick={handleConvert}
           >
             <p>Convert</p>
-            <BanknotesIcon className="w-5 h-4" />
+            <BanknotesIcon className="w-6 h-4" />
           </Button>
         </div>
 
