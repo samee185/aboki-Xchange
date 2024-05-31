@@ -47,7 +47,6 @@ const Hero = () => {
     }
 
     setAmount("");
-    setTo("");
   };
 
   return (
@@ -120,7 +119,7 @@ const Hero = () => {
               Converted Amount: 
               <span>
                 {" "}
-                {to} {convertedAmount.toFixed(2)}
+                {to} {convertedAmount.toFixed(4)}
               </span>
             </p>
           </div>
