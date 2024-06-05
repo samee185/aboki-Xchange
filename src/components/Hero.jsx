@@ -105,7 +105,7 @@ const Hero = () => {
         <div className="mt-12 md:flex md:justify-center">
           <Button
             className="flex items-center gap-2 bg-purple-900
-             hover:bg-purple-400 px-8 transition ease-in-out duration-1000"
+             hover:bg-purple-300 px-8 transition ease-in-out duration-1000"
             onClick={handleConvert}
           >
             <p>Convert</p>
