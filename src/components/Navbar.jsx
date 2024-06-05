@@ -43,7 +43,7 @@ const NavList = () => {
     </ul>
   );
 }
-const Navbar = () => {
+const   Navbar = () => {
 
   const [openNav, setOpenNav] = useState(false);
  

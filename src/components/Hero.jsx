@@ -99,7 +99,7 @@ const Hero = () => {
             </Select>
           </div>
         </div>
-        {amount !== "" && parseFloat(amount) <= 0 && (
+        {amount !== "" && parseFloat(amount) <= 0 && ( 
           <p className="text-red-500 mt-4">Please enter a positive value</p>
         )}
         <div className="mt-12 md:flex md:justify-center">
@@ -119,7 +119,7 @@ const Hero = () => {
               Converted Amount: 
               <span>
                 {" "}
-                {to} {convertedAmount.toFixed(2)}
+                {to} {convertedAmount.toFixed(3)}
               </span>
             </p>
           </div>
