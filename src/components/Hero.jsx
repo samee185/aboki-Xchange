@@ -115,7 +115,7 @@ const Hero = () => {
 
         {convertedAmount !== null && (
           <div className="md:w-1/2 mt-10 bg-purple-100 py-8 px-6 rounded-xl">
-            <p className="text-purple-900 md:text-[18px] ">
+            <p className="text-purple-800 md:text-[18px] ">
               Converted Amount: 
               <span>
                 {" "}
